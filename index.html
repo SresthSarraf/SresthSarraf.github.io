@@ -3494,9 +3494,21 @@ About Sresth:
       return `${diff} days until New Year ${now.getFullYear()+1} 🎆`;
     }
 
+    // DARK / LIGHT MODE
+    if(/dark mode|turn dark|switch dark|enable dark|go dark/.test(lower)){
+      document.documentElement.setAttribute('data-theme','dark');
+      localStorage.setItem('theme','dark');
+      return `Dark mode on 🌙 Easy on the eyes!`;
+    }
+    if(/light mode|turn light|switch light|enable light|go light/.test(lower)){
+      document.documentElement.setAttribute('data-theme','light');
+      localStorage.setItem('theme','light');
+      return `Light mode on ☀️ Bright and clean!`;
+    }
+
     // WHAT CAN YOU DO
     if(/what can you do|help me|your features|capabilities|commands/.test(lower)){
-      return `I can help with:\n- Time & date\n- Math & percentages\n- Unit conversions (km, kg, °C...)\n- Flip a coin / roll a dice\n- Jokes & motivation\n- Everything about Sresth's portfolio\nJust ask! 😊`;
+      return `I can help with:\n- Time & date\n- Dark/light mode switching\n- Math & percentages\n- Unit conversions (km, kg, °C...)\n- Flip a coin / roll a dice\n- Jokes & motivation\n- Everything about Sresth's portfolio\nJust ask! 😊`;
     }
 
     return null;
